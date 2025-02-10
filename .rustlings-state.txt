@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-strings4
+options3
 
 intro1
 intro2
@@ -9,6 +9,13 @@ variables2
 variables3
 variables4
 variables5
+functions1
+functions2
+functions3
+functions4
+functions5
+if1
+if2
 primitive_types1
 primitive_types2
 primitive_types3
@@ -29,3 +36,5 @@ enums3
 strings1
 strings2
 strings3
+options1
+options2
