@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-box1
+macros1
 
 intro1
 intro2
@@ -9,6 +9,7 @@ variables2
 variables3
 variables4
 variables5
+variables6
 functions1
 functions2
 functions3
@@ -70,3 +71,10 @@ iterators2
 iterators3
 iterators4
 iterators5
+box1
+rc1
+arc1
+cow1
+threads1
+threads2
+threads3

@@ -35,71 +35,70 @@ mod tests {
     use super::*;
 
     #[test]
-    fn rc1() {
-        let sun = Rc::new(Sun);
-        println!("reference count = {}", Rc::strong_count(&sun)); // 1 reference
+    #[test]
+fn rc1() {
+    let sun = Rc::new(Sun);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 1
 
-        let mercury = Planet::Mercury(Rc::clone(&sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 2 references
-        mercury.details();
+    let mercury = Planet::Mercury(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 2
+    mercury.details();
 
-        let venus = Planet::Venus(Rc::clone(&sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 3 references
-        venus.details();
+    let venus = Planet::Venus(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 3
+    venus.details();
 
-        let earth = Planet::Earth(Rc::clone(&sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 4 references
-        earth.details();
+    let earth = Planet::Earth(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 4
+    earth.details();
 
-        let mars = Planet::Mars(Rc::clone(&sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 5 references
-        mars.details();
+    let mars = Planet::Mars(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 5
+    mars.details();
 
-        let jupiter = Planet::Jupiter(Rc::clone(&sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 6 references
-        jupiter.details();
+    let jupiter = Planet::Jupiter(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 6
+    jupiter.details();
 
-        // TODO
-        let saturn = Planet::Saturn(Rc::new(Sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 7 references
-        saturn.details();
+    let saturn = Planet::Saturn(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 7
+    saturn.details();
 
-        // TODO
-        let uranus = Planet::Uranus(Rc::new(Sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 8 references
-        uranus.details();
+    let uranus = Planet::Uranus(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 8
+    uranus.details();
 
-        // TODO
-        let neptune = Planet::Neptune(Rc::new(Sun));
-        println!("reference count = {}", Rc::strong_count(&sun)); // 9 references
-        neptune.details();
+    let neptune = Planet::Neptune(Rc::clone(&sun));
+    println!("reference count = {}", Rc::strong_count(&sun)); // 9
+    neptune.details();
 
-        assert_eq!(Rc::strong_count(&sun), 9);
+    assert_eq!(Rc::strong_count(&sun), 9);
 
-        drop(neptune);
-        println!("reference count = {}", Rc::strong_count(&sun)); // 8 references
+    drop(neptune);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 8
 
-        drop(uranus);
-        println!("reference count = {}", Rc::strong_count(&sun)); // 7 references
+    drop(uranus);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 7
 
-        drop(saturn);
-        println!("reference count = {}", Rc::strong_count(&sun)); // 6 references
+    drop(saturn);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 6
 
-        drop(jupiter);
-        println!("reference count = {}", Rc::strong_count(&sun)); // 5 references
+    drop(jupiter);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 5
 
-        drop(mars);
-        println!("reference count = {}", Rc::strong_count(&sun)); // 4 references
+    drop(mars);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 4
 
-        // TODO
-        println!("reference count = {}", Rc::strong_count(&sun)); // 3 references
+    drop(earth);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 3
 
-        // TODO
-        println!("reference count = {}", Rc::strong_count(&sun)); // 2 references
+    drop(venus);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 2
 
-        // TODO
-        println!("reference count = {}", Rc::strong_count(&sun)); // 1 reference
+    drop(mercury);
+    println!("reference count = {}", Rc::strong_count(&sun)); // 1
 
-        assert_eq!(Rc::strong_count(&sun), 1);
-    }
+    assert_eq!(Rc::strong_count(&sun), 1);
+}
+
 }
